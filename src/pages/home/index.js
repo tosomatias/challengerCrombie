@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, CharacterCard, Card } from "./style";
 
-const Home = ({ characters }) => {
+const Home = ({ characters, handlePreviousPage, handleNextPage, info }) => {
   return (
     <Container>
       <CharacterCard>
@@ -22,6 +22,10 @@ const Home = ({ characters }) => {
           </Card>
         ))}
       </CharacterCard>
+      {info.prev === null ? null : (
+        <button onClick={handlePreviousPage}>handlePreviousPage</button>
+      )}
+      <button onClick={handleNextPage}>handleNextPage</button>
     </Container>
   );
 };
