@@ -1,31 +1,15 @@
 import React from "react";
-import { Container, CharacterCard, Card } from "./style";
+import { useNavigate } from "react-router-dom";
+import { Container, ImgName } from "./style";
+import TitleName from "../../img/name.png";
 
-const Home = ({ characters, handlePreviousPage, handleNextPage, info }) => {
+const Home = () => {
+  const navigate = useNavigate();
   return (
     <Container>
-      <CharacterCard>
-        {characters.map((item) => (
-          <Card key={item.id}>
-            <div>
-              <img
-                src={item.image}
-                alt="img characters"
-                style={{ width: "100%" }}
-              />
-            </div>
-            <div>
-              <p>Name{item.name}</p>
-              <p>Species: {item.species}</p>
-              <p>Location: {item.location.name}</p>
-            </div>
-          </Card>
-        ))}
-      </CharacterCard>
-      {info.prev === null ? null : (
-        <button onClick={handlePreviousPage}>handlePreviousPage</button>
-      )}
-      <button onClick={handleNextPage}>handleNextPage</button>
+      <ImgName src={TitleName} alt="Rick and Morty" />
+
+      <button onClick={() => navigate("/characters")}>Ver</button>
     </Container>
   );
 };

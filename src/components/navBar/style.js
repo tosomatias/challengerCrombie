@@ -6,8 +6,13 @@ export const Container = styled.div`
   justify-content: space-between;
   aling-items: center;
   text-align: center;
-  padding: 5%;
+  padding: 2%;
+  padding-left: 5%;
+  background-color: #000000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 export const Img = styled.img`
-  width: 5%;
+  width: 25%;
+  border-radius: 80%;
 `;

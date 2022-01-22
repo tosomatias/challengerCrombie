@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/index";
 import NavBar from "./components/navBar/index";
+import Search from "./pages/search/index";
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState({});
@@ -33,13 +34,24 @@ const App = () => {
 
   return (
     <>
-      <NavBar title="Rick and Morty" />
-      <Home
-        characters={characters}
-        handleNextPage={handleNextPage}
-        handlePreviousPage={handlePreviousPage}
-        info={info}
-      />
+      <BrowserRouter>
+        <NavBar title="Rick and Morty" />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/characters"
+            element={
+              <Search
+                characters={characters}
+                handleNextPage={handleNextPage}
+                handlePreviousPage={handlePreviousPage}
+                info={info}
+              />
+            }
+          />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
