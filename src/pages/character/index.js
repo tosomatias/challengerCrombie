@@ -10,7 +10,9 @@ import {
   ImgCard,
   InfoCard,
   Button,
+  Live,
   ContainerButton,
+  I,
 } from "./style";
 import Logo from "../../img/Await.png";
 
@@ -31,9 +33,15 @@ const Search = ({
                 <ImgCard src={character.image} alt="img characters" />
                 <div>
                   <InfoCard name="true">{character.name}</InfoCard>
+
                   <InfoCard>
                     <i className="fas fa-atom" />
                     Status: {character.status}
+                    {character.status === "Dead" ? (
+                      <I className="fas fa-circle" />
+                    ) : (
+                      <Live className="fas fa-circle" />
+                    )}
                   </InfoCard>
                   <InfoCard>
                     <i className="fas fa-atom" />

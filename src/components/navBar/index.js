@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import nameIcon from "../../img/nameIcon.png";
 
-import { Container, Img } from "./style";
+import { Container, Img, Tilte } from "./style";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ const NavBar = () => {
             alt="Rick and Morty"
             onClick={() => navigate("/")}
           />
+          <Tilte>PERSONAJES</Tilte>
         </Container>
       ) : null}
     </>
