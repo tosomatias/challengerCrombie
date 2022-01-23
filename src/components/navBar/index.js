@@ -1,14 +1,31 @@
-import React from "react";
-import RickSanchez from "../../img/rick.jpg";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import nameIcon from "../../img/nameIcon.png";
 
 import { Container, Img } from "./style";
 
-const NavBar = ({ title }) => {
+const NavBar = () => {
+  const navigate = useNavigate();
+  const [Location, setLocation] = useState("");
+  const location = useLocation();
+  const URLactual = location.pathname;
+
+  useEffect(() => {
+    setLocation(URLactual);
+  }, [URLactual, setLocation]);
+
   return (
-    <Container>
-      <h3>{title}</h3>
-      <Img src={RickSanchez} alt="" />
-    </Container>
+    <>
+      {Location === "/characters" ? (
+        <Container>
+          <Img
+            src={nameIcon}
+            alt="Rick and Morty"
+            onClick={() => navigate("/")}
+          />
+        </Container>
+      ) : null}
+    </>
   );
 };
 

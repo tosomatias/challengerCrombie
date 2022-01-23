@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/index";
 import NavBar from "./components/navBar/index";
-import Search from "./pages/search/index";
+import Characters from "./pages/character/index";
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [info, setInfo] = useState({});
-  const url = `https://rickandmortyapi.com/api/character/?count=6`;
+  const [info, setInfo] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const url = `https://rickandmortyapi.com/api/character`;
 
   useEffect(() => {
     try {
       challenge(url);
+      setCargando(false);
     } catch (error) {
       console.error(error);
     }
@@ -35,17 +37,18 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <NavBar title="Rick and Morty" />
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/characters"
             element={
-              <Search
+              <Characters
                 characters={characters}
                 handleNextPage={handleNextPage}
                 handlePreviousPage={handlePreviousPage}
                 info={info}
+                cargando={cargando}
               />
             }
           />
