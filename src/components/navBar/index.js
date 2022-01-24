@@ -34,6 +34,7 @@ const NavBar = ({ setqueries, characters, setModal, setnoCharacter }) => {
       });
       if (res.length === 0) {
         setnoCharacter(true);
+        setSearch("");
       } else {
         setnoCharacter(false);
         setqueries(res);
