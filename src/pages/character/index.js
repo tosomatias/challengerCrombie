@@ -1,5 +1,6 @@
 import React from "react";
 import Consultas from "./Consultas";
+import Image from "../../img/no.png";
 
 import {
   Container,
@@ -13,6 +14,8 @@ import {
   Button,
   Live,
   I,
+  ConteinerNoCharters,
+  TextNoCharters,
 } from "./style";
 import Logo from "../../img/Await.png";
 
@@ -23,15 +26,23 @@ const Search = ({
   queries,
   setModal,
   modal,
+  noCharacter,
 }) => {
   return (
     <>
       {!loading ? (
         <Container>
           {modal ? (
-            queries.map((query) => (
-              <Consultas key={query.id} query={query} setModal={setModal} />
-            ))
+            noCharacter ? (
+              <ConteinerNoCharters>
+                <ImgCard src={Image} alt="imagen sin personajes" />
+                <TextNoCharters>!Personaje no disponible!</TextNoCharters>
+              </ConteinerNoCharters>
+            ) : (
+              queries.map((query) => (
+                <Consultas key={query.id} query={query} setModal={setModal} />
+              ))
+            )
           ) : (
             <CharacterCard>
               {characters.map((character) => (

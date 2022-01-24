@@ -11,6 +11,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   //state where the list of characters is saved as a result of the search
   const [queries, setqueries] = useState([]);
+  const [noCharacter, setnoCharacter] = useState(false);
   //status that enables the card where the characters that arise from the search of the navBar are shown
   const [modal, setModal] = useState(false);
   //Api rest
@@ -19,17 +20,19 @@ const App = () => {
   useEffect(() => {
     try {
       challenge(url);
-      setLoading(false);
     } catch (error) {
       console.error(error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
+
   //arrow function to query the api
   const challenge = async (url) => {
     const respuesta = await fetch(url);
     const data = await respuesta.json();
     setCharacters(characters.concat(data.results));
     setInfo(data.info);
+    setLoading(false);
   };
   //arrow function to show more characters
   const handleNextPage = () => {
@@ -43,6 +46,7 @@ const App = () => {
           characters={characters}
           setqueries={setqueries}
           setModal={setModal}
+          setnoCharacter={setnoCharacter}
         />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -57,6 +61,7 @@ const App = () => {
                 queries={queries}
                 modal={modal}
                 setModal={setModal}
+                noCharacter={noCharacter}
               />
             }
           />

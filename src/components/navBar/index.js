@@ -4,7 +4,7 @@ import nameIcon from "../../img/nameIcon.png";
 
 import { Container, Img, ContainerForm, InputForm, I } from "./style";
 
-const NavBar = ({ setqueries, characters, setModal }) => {
+const NavBar = ({ setqueries, characters, setModal, setnoCharacter }) => {
   //hook to navigate between routes in react-router-dom
   const navigate = useNavigate();
   //state of where the location.path information is saved
@@ -18,27 +18,27 @@ const NavBar = ({ setqueries, characters, setModal }) => {
 
   const onSubmitBuscar = (e) => {
     e.preventDefault();
-    if (search.trim() === "") {
+    let lowerSearch = search.toLowerCase();
+    if (lowerSearch.trim() === "") {
       setError(true);
     } else {
       setError(false);
       setModal(true);
-      //arrow function to capitalize the first letter of each word
-      const NameSarch = search
-        ? search.replace(/\b\w/g, (l) => l.toUpperCase())
-        : null;
-
       //function to filter the array of characters and compare it with the  string that the search brings
       const res = characters.filter((character) => {
         return (
-          character.name.trim() === NameSarch.trim() ||
-          character.status.trim() === NameSarch.trim() ||
-          character.species.trim() === NameSarch.trim()
+          character.name.toLowerCase().indexOf(lowerSearch) !== -1 ||
+          character.status.toLowerCase().indexOf(lowerSearch) !== -1 ||
+          character.species.toLowerCase().indexOf(lowerSearch) !== -1
         );
       });
-
-      setqueries(res);
-      setSearch("");
+      if (res.length === 0) {
+        setnoCharacter(true);
+      } else {
+        setnoCharacter(false);
+        setqueries(res);
+        setSearch("");
+      }
     }
   };
 

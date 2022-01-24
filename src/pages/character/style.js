@@ -79,7 +79,7 @@ export const ContainerAwait = styled.div`
 export const ImgAwait = styled.img`
   width: 100%;
   @media (min-width: 992px) {
-    width: 50%;
+    width: 40%;
   }
 `;
 export const TextAwait = styled.h2`
@@ -122,9 +122,9 @@ export const ImgCard = styled.img`
 export const InfoCard = styled.p`
   color: white;
 
-  font-size: ${({ name }) => (name ? "32px" : "16px")};
+  font-size: ${({ name }) => (name ? "28px" : "16px")};
   text-align: start;
-  font-weight: ${({ name }) => (name ? "bold" : "400")};
+  font-weight: ${({ name }) => (name ? "500" : "400")};
   padding-left: 1%;
   @media (min-width: 992px) {
     font-size: ${({ name }) => (name ? "25px" : "12px")};
@@ -177,6 +177,7 @@ export const QueryCard = styled.div`
   border: 2px solid white;
   text-align: flex-start;
   background-color: black;
+  margin-bottom: 4%;
 
   @media (min-width: 992px) {
     flex-direction: row;
@@ -199,4 +200,21 @@ export const CloseIcon = styled.i`
     right: 48%;
     cursor: pointer;
   }
+`;
+export const ConteinerNoCharters = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8%;
+  @media (min-width: 992px) {
+    padding-top: 0;
+    flex-direction: row;
+  }
+`;
+export const TextNoCharters = styled.h2`
+  color: #64c09b;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
 `;
