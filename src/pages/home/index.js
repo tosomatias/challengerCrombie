@@ -6,8 +6,9 @@ import IconLogo from "../../img/IconLogo.png";
 
 const Home = () => {
   const navigate = useNavigate();
+  //state to activate the button animation on home
   const [animation, setAnimation] = useState(false);
-
+  //arrow function that enables the button animation, plus a setTimeOut to perform a page redirect
   const goAnimation = () => {
     setAnimation(true);
     setTimeout(() => {

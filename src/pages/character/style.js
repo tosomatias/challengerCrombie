@@ -128,27 +128,37 @@ export const InfoCard = styled.p`
   font-weight: ${({ name }) => (name ? "bold" : "400")};
   padding-left: 1%;
   @media (min-width: 992px) {
-    font-size: ${({ name }) => (name ? "60px" : "40px")};
+    font-size: ${({ name }) => (name ? "50px" : "40px")};
     width: 100%;
   }
 `;
 
-export const ContainerButton = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 5% 0;
-`;
-export const Button = styled.i`
+export const Button = styled.button`
+  color: black;
+  text-align: center;
+  border: 2px solid #64c09b;
+  border-radius: 20px;
+  background-color: #64c09b;
+  margin-top: 10%;
   cursor: pointer;
-  color: #64c09b;
-  font-size: 40px;
+  padding: 1%;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 60%;
+  text-align: center;
+  :focus {
+    outline: none;
+  }
   @media (min-width: 992px) {
-    font-size: 200px;
-    margin-right: 5%;
     :hover {
-      color: red;
+      color: #64c09b;
+      background-color: transparent;
     }
+    margin-top: 5%;
+    font-size: 82px;
+    width: 20%;
+    border-radius: 40px;
   }
 `;
 export const I = styled.i`
@@ -158,4 +168,34 @@ export const I = styled.i`
 export const Live = styled.i`
   color: green;
   margin-left: 3%;
+`;
+export const QueryCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+  border: 2px solid white;
+  text-align: flex-start;
+  background-color: black;
+  margin: 0;
+  @media (min-width: 992px) {
+    flex-direction: row;
+    width: 30%;
+    cursor: pointer;
+    :hover {
+      transform: scale(1.3);
+    }
+  }
+`;
+export const CloseIcon = styled.i`
+  position: absolute;
+  font-size: 25px;
+  top: 7%;
+  right: 7%;
+  @media (min-width: 992px) {
+    font-size: 100px;
+    top: 9%;
+    right: 48%;
+    cursor: pointer;
+  }
 `;

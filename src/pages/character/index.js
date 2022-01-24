@@ -1,4 +1,5 @@
 import React from "react";
+import Consultas from "./Consultas";
 
 import {
   Container,
@@ -11,74 +12,57 @@ import {
   InfoCard,
   Button,
   Live,
-  ContainerButton,
   I,
 } from "./style";
 import Logo from "../../img/Await.png";
 
 const Search = ({
   characters,
-  handlePreviousPage,
   handleNextPage,
-  info,
-  cargando,
+  loading,
+  queries,
+  setModal,
+  modal,
 }) => {
   return (
     <>
-      {!cargando ? (
+      {!loading ? (
         <Container>
-          <CharacterCard>
-            {characters.map((character) => (
-              <Card key={character.id}>
-                <ImgCard src={character.image} alt="img characters" />
-                <div>
-                  <InfoCard name="true">{character.name}</InfoCard>
-
-                  <InfoCard>
-                    <i className="fas fa-atom" />
-                    Status: {character.status}
-                    {character.status === "Dead" ? (
-                      <I className="fas fa-circle" />
-                    ) : (
-                      <Live className="fas fa-circle" />
-                    )}
-                  </InfoCard>
-                  <InfoCard>
-                    <i className="fas fa-atom" />
-                    Species: {character.species}
-                  </InfoCard>
-                  <InfoCard>
-                    <i className="fas fa-atom" />
-                    Location: {character.location.name}
-                  </InfoCard>
-                </div>
-              </Card>
-            ))}
-          </CharacterCard>
-
-          {info.prev === null ? (
-            <ContainerButton>
-              <Button
-                className="fas fa-arrow-circle-right"
-                onClick={handleNextPage}
-              />
-            </ContainerButton>
+          {modal ? (
+            queries.map((query) => (
+              <Consultas key={query.id} query={query} setModal={setModal} />
+            ))
           ) : (
-            <ContainerButton>
-              <Button
-                className="fas fa-arrow-circle-left"
-                onClick={handlePreviousPage}
-              />
+            <CharacterCard>
+              {characters.map((character) => (
+                <Card key={character.id}>
+                  <ImgCard src={character.image} alt="img characters" />
+                  <div>
+                    <InfoCard name="true">{character.name}</InfoCard>
 
-              <Button
-                className="fas fa-arrow-circle-right"
-                onClick={handleNextPage}
-              />
-            </ContainerButton>
+                    <InfoCard>
+                      <i className="fas fa-atom" />
+                      Status: {character.status}
+                      {character.status === "Dead" ? (
+                        <I className="fas fa-circle" />
+                      ) : (
+                        <Live className="fas fa-circle" />
+                      )}
+                    </InfoCard>
+                    <InfoCard>
+                      <i className="fas fa-atom" />
+                      Species: {character.species}
+                    </InfoCard>
+                  </div>
+                </Card>
+              ))}
+            </CharacterCard>
           )}
+
+          {modal ? null : <Button onClick={handleNextPage}>Cargar Más</Button>}
         </Container>
       ) : (
-        <ContainerAwait cargando={cargando}>
+        <ContainerAwait>
           <ImgAwait src={Logo} alt="img characters" />
           <TextAwait>Cargando </TextAwait>
         </ContainerAwait>
