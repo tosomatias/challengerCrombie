@@ -8,7 +8,7 @@ export const Container = styled.div`
   text-align: center;
   padding-right: 3.5%;
   @media (min-width: 992px) {
-    padding-right: 6%;
+    padding-right: 4%;
   }
 `;
 export const Img = styled.img`
@@ -32,7 +32,7 @@ export const ContainerForm = styled.div`
   width: 100%;
   @media (min-width: 992px) {
     margin: 0;
-    padding-top: 12%;
+    padding-top: 10%;
   }
 `;
 export const InputForm = styled.input`
@@ -57,11 +57,11 @@ export const InputForm = styled.input`
     }};
   }
   @media (min-width: 992px) {
-    font-size: 60px;
+    font-size: 20px;
     padding: 1%;
-    padding-left: 2%;
+    padding-left: 1%;
     margin-right: 2%;
-    width: 80%;
+    width: 90%;
   }
 `;
 export const I = styled.i`
@@ -69,6 +69,6 @@ export const I = styled.i`
   font-size: 20px;
   color: #64c09b;
   @media (min-width: 992px) {
-    font-size: 80px;
+    font-size: 25px;
   }
 `;

@@ -21,7 +21,7 @@ export const Container = styled.div`
     }
   }
   @media (min-width: 992px) {
-    padding: 6%;
+    padding: 5%;
     padding-top: 2%;
   }
 `;
@@ -33,7 +33,7 @@ export const CharacterCard = styled.div`
 
   @media (min-width: 992px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 150px;
+    grid-gap: 50px;
     justify-content: center;
     align-items: center;
     margin-left: 0;
@@ -52,7 +52,6 @@ export const Card = styled.div`
   margin: 0;
   @media (min-width: 992px) {
     flex-direction: row;
-    width: 90%;
     cursor: pointer;
     :hover {
       transform: scale(1.3);
@@ -114,7 +113,7 @@ export const ImgCard = styled.img`
   border-radius: 10px;
   margin-bottom: 3%;
   @media (min-width: 992px) {
-    width: 50%;
+    width: 40%;
     margin-bottom: 0;
     margin-right: 3%;
   }
@@ -128,7 +127,8 @@ export const InfoCard = styled.p`
   font-weight: ${({ name }) => (name ? "bold" : "400")};
   padding-left: 1%;
   @media (min-width: 992px) {
-    font-size: ${({ name }) => (name ? "50px" : "40px")};
+    font-size: ${({ name }) => (name ? "25px" : "12px")};
+    margin-bottom: ${({ name }) => (name ? "5%" : "0")};
     width: 100%;
   }
 `;
@@ -156,7 +156,7 @@ export const Button = styled.button`
       background-color: transparent;
     }
     margin-top: 5%;
-    font-size: 82px;
+    font-size: 30px;
     width: 20%;
     border-radius: 40px;
   }
@@ -177,10 +177,11 @@ export const QueryCard = styled.div`
   border: 2px solid white;
   text-align: flex-start;
   background-color: black;
-  margin: 0;
+
   @media (min-width: 992px) {
     flex-direction: row;
-    width: 30%;
+    margin-bottom: 2%;
+    width: 40%;
     cursor: pointer;
     :hover {
       transform: scale(1.3);
@@ -193,8 +194,8 @@ export const CloseIcon = styled.i`
   top: 7%;
   right: 7%;
   @media (min-width: 992px) {
-    font-size: 100px;
-    top: 9%;
+    font-size: 40px;
+    top: 8%;
     right: 48%;
     cursor: pointer;
   }

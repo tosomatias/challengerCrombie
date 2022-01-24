@@ -9,15 +9,18 @@ export const Container = styled.div`
   padding-top: 4%;
   @media (min-width: 992px) {
     flex-direction: row;
-    padding-top: 1%;
-    padding-right: 20%;
-    padding-left: 5%;
-    justify-content: space-between;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 10%;
+    justify-content: center;
   }
 `;
 
 export const ImgName = styled.img`
   width: 100%;
+  @media (min-width: 992px) {
+    width: 80%;
+  }
 `;
 export const ImgIcon = styled.img`
   width: 80%;
@@ -26,7 +29,7 @@ export const ImgIcon = styled.img`
   animation-timing-function: linear;
   animation-direction: alternate;
   @media (min-width: 992px) {
-    width: 50%;
+    width: 30%;
     animation-duration: 1s;
   }
 
@@ -68,10 +71,10 @@ export const Button = styled.button`
       background-color: transparent;
     }
     margin-top: 20%;
-    font-size: 82px;
-    width: 40%;
+    font-size: 35px;
+    width: 80%;
     border-radius: 40px;
-
+    padding: 0;
     transition: transform 3s ease-in-out;
     transform: ${({ animation }) =>
       animation ? "rotate(2000deg)" : "rotate(0)"};
