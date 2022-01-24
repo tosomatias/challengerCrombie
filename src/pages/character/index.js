@@ -16,6 +16,7 @@ import {
   I,
   ConteinerNoCharters,
   TextNoCharters,
+  CloseIcon,
 } from "./style";
 import Logo from "../../img/Await.png";
 
@@ -35,6 +36,10 @@ const Search = ({
           {modal ? (
             noCharacter ? (
               <ConteinerNoCharters>
+                <CloseIcon
+                  className="far fa-times-circle"
+                  onClick={() => setModal(false)}
+                />
                 <ImgCard src={Image} alt="imagen sin personajes" />
                 <TextNoCharters>!Personaje no disponible!</TextNoCharters>
               </ConteinerNoCharters>
